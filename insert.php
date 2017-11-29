@@ -3,12 +3,14 @@
     
     $DataTime = $_POST['ACTIVITY_DATE'];
     $Event = $_POST['ACTIVITY_EVENT'];
-    $sql = "INSERT INTO `activity`(`ACTIVITY_ID`,`ACTIVITY_DATE`, `ACTIVITY_EVENT`,) VALUES (NULL,'".$DataTime."','".$Event."')";
-    echo $sql;
-    if (mysqli_query($conn, $sql)) {
+
+    $sql = "INSERT INTO `activity`(`ACTIVITY_DATE`, `ACTIVITY_EVENT`) VALUES ('$DataTime', '$Event')";
+
+    
+    $query = mysqli_query($conn , $sql);
+
+    if ($query) {
         echo "New record created successfully";
-        header('Location: http://localhost/test/');
-    } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+       header('Location: http://localhost/Diary-Events/');
     }
 ?>

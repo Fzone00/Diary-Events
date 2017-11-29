@@ -8,7 +8,7 @@ $result = mysqli_query($conn,$sql);
 $data = [];
 
 while($row = $result->fetch_assoc()) {
-    $output['data'][] = array($row["ACTIVITY_DATE"],$row["ACTIVITY_EVENT"]);
+    $output['data'][] = array($row["ACTIVITY_ID"],$row["ACTIVITY_DATE"],$row["ACTIVITY_EVENT"]);
 }
 //var_dump(json_encode($data));
 ?>

@@ -30,16 +30,17 @@
 				<!-- Modal content-->
 				<div class="modal-content">
 				<div class="modal-header">
-						please Input  Data;
+						Please Input  Data
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
 				<form action="insert.php" method="post">
 				
 				<div class="modal-body">
+
 					<label class="control-label col-sm-2" >DataTime:</label>
-						<input type="text"name="ACTIVITY_DATE"><br>
+						<input type="text" name="ACTIVITY_DATE"><br>
 					<label class="control-label col-sm-2 " >Event:</label>
-						<input type="text"name="ACTIVITY_EVENT"><br>	
+						<input type="text" name="ACTIVITY_EVENT"><br>	
 					
 				</div>
 				<div class="modal-footer">
@@ -71,11 +72,11 @@
 					?>
 					<tr>
 						<td><?=$i?></td>
-						<td><?=$row[0]?></td>
 						<td><?=$row[1]?></td>
-					<td> <button class="btn btn-warning" ><i class="fa fa-pencil" aria-hidden="true"></i></i> Edit</button>                                    
+						<td><?=$row[2]?></td>
+					<td> <a href="Edit.php?id=<?=$row[0]?>" class="btn btn-warning" ><i class="fa fa-pencil" aria-hidden="true"></i></i> Edit</a>                                    
  	  					<button class="btn btn-danger"  >Delete</button>
-                                    
+                                   
 					</tr>
 					<?php
 						$i++;

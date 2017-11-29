@@ -38,7 +38,7 @@
 				<div class="modal-body">
 					<label class="control-label col-sm-2" >DataTime:</label>
 						<input type="text"name="ACTIVITY_DATE"><br>
-					<label class="control-label col-sm-2 " >Event:</label>
+					<label class="control-label col-sm-2" >Event:</label>
 						<input type="text"name="ACTIVITY_EVENT"><br>	
 					
 				</div>

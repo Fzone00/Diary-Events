@@ -1,98 +1,114 @@
-<html lang="en"><head>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Eve SYSTEM</title>
 
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>TimeLine </title>
+	<!-- bootstrap css -->
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- datatables css -->
+	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 
-
-
-			<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-			<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
-				<link href="//fonts.googleapis.com/css?family=Lato:100,400,700" rel="stylesheet">
-		<link href="https://fullcalendar.io/css/base.css?3.6.2-1.8.1-2" rel="stylesheet">
-		<link rel="stylesheet" href="https://fullcalendar.io/js/fullcalendar-3.6.2/fullcalendar.min.css">
-			<script async="" src="//www.google-analytics.com/analytics.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="https://fullcalendar.io/js/fullcalendar-3.6.2/fullcalendar.min.js"></script>
-	<script src="https://fullcalendar.io/js/home.js?3.6.2-1.8.1-2"></script>
-
-	<script>
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-	ga('create', 'UA-3534877-8', 'auto');
-	ga('send', 'pageview');
-</script>
 </head>
-<body id="index-page">
-test
-	<div id="head" class="section">
-		<div>
-			<div class="left">
+<body>
 
-					<img id="logo" src="fullcalendar.jpg" width="58" height="48">
-					<h1>Event Time</h1>
+	<?php
+		//include('php_action/retrieve.php');
+	?>
+	<div class="container">
+		<div class="row-sm-3">
+		
+		</div>
+		<div class="row-sm-6" >
+			<h1 style="text-align: center; ">TimeLine</h1>
 			
-			</div>
+			<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Add Data</button>
 
-			<div class="clear"></div>
-		</div>
-	</div>
+			<!-- Modal -->
+			<div id="myModal" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-lg">
 
-	
-	<div id="body" class="section">
-		<div>
-				<div class="two-col" style="table-layout:fixed">
-		<div class="content">
-			<div id="calendar" class="fc fc-unthemed fc-ltr"><div class="fc-toolbar fc-header-toolbar"><div class="fc-left"><div class="fc-button-group">
-		<div class="sidebar" style="width:215px">
-
-		</div>
-	</div>
-
-		</div>
-	</div>
-
-	
-<div id="foot" >
-		<div class="right">
-					<button type="button" class ="btn btn-primary" data-toggle="modal" data-target="#addMember">Add Event</button> 
-		</div>
-<div class="modal fade" role="dialong" id="addMember">
-		<div class="modal-dialog">
-			<div class="modal-content">
+				<!-- Modal content-->
+				<div class="modal-content">
 				<div class="modal-header">
-					Please Input Member Data:
+						please Input  Data;
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
-				<form class="form-horizontal" method="POST" action="phplib/create.php">
-					<div class="modal-body">
-						<div class="form-group">
-							<label class="col-md-2 control-label " >ID: </label>
-							<div class="col-md-10">
-								<input type="text" class="form-control" name="id">
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-md-2 control-label" >Fnama: </label>
-							<div class="col-md-10">
-								<input type="text" class="form-control" name="fname">
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-md-2 control-label " >Lname: </label>
-							<div class="col-md-10">
-								<input type="text" class="form-control" name="lane">
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-md-2 control-label " >Contact: </label> 
-							<div class="col-md-10">
-								<input type="text" class="form-control" name="contact">
-							</div>
-						</div>
+				<form action="insert.php" method="post">
+				
+				<div class="modal-body">
+					<label class="control-label col-sm-2" >DataTime:</label>
+						<input type="text"name="ACTIVITY_DATE"><br>
+					<label class="control-label col-sm-2" >Event:</label>
+						<input type="text"name="ACTIVITY_EVENT"><br>	
+					
+				</div>
+				<div class="modal-footer">
+				<button type="submit" class="btn btn-success">Submit</button>
+						<button type="reset" class="btn btn-warning">Reset</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+				</form>
+				</div>
 
-</div>
+			</div>
+			</div>
+			<?php 
+				require('release.php');
+				//code($data))
+			?>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Order</th>
+						<th>DataTime</th>
+						<th>Event</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php
+						$i=1;
+						foreach($output['data']as $row)	{
+					?>
+					<tr>
+						<td><?=$i?></td>
+						<td><?=$row[0]?></td>
+						<td><?=$row[1]?></td>
+					<td> <button class="btn btn-warning" ><i class="fa fa-pencil" aria-hidden="true"></i></i> Edit</button>                                    
+ 	  					<button class="btn btn-danger"    onclick="deleteMember(<?=$row[0]?>)">Delete</button>
+                                    
+					</tr>
+					<?php
+						$i++;
+						}
 
+					?>
+				</tbody>
+			</table>
+	</div>
+	<script type="text/javascript">
+		function deleteMember(id){
+		// alert(id+'Cleck')
+		$.ajax({
+			url:'delete.php',
+			type:'post',
+			date: {did;id};
+			success:function(response){
+				if(response.success==true){
+					window.location.replace();
+				}
+			}
+		});
+	}
+</script>
+	<!-- jquery plugin -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- bootstrap js -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!-- datatables js -->
+	<script type="text/javascript" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+	
 
-</body></html>
+	
+
+</body>
+</html>

@@ -5,18 +5,21 @@
 	if (isset($_GET['id'])) {
 		$id = $_GET['id'];
 	}
-	if (isset($_POST['ACTIVITY_EVENT'])) {
-		$Event = $_POST['ACTIVITY_EVENT'];
+	if (isset($_POST['EVENT'])) {
+		$Event = $_POST['EVENT'];
 	}
-	if (isset($_POST['ACTIVITY_DATE'])) {
-		$DataTime = $_POST['ACTIVITY_DATE'];
+	if (isset($_POST['TYPE'])) {
+		$Type = $_POST['TYPE'];
+	}
+	if (isset($_POST['DATE'])) {
+		$DataTime = $_POST['DATE'];
 	}
 
 	
 	/*$DataTime = $_POST['ACTIVITY_DATE'];
 	$Event = $_POST['ACTIVITY_EVENT'];*/
 
-    $sql = "UPDATE `activity` SET `ACTIVITY_DATE` = '$DataTime', `ACTIVITY_EVENT` = '$Event' WHERE `activity`.`ACTIVITY_ID` = $id";
+    $sql = "UPDATE `activity` SET `DATE` = '$DataTime', `TYPE` = '$Type', `EVENT` = '$Event' WHERE `activity`.`ID` = $id";
 
     $query = mysqli_query($conn , $sql);
 

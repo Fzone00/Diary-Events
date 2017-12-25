@@ -1,10 +1,11 @@
 <?php
     require_once 'dbconfig.php';
     
-    $DataTime = $_POST['ACTIVITY_DATE'];
-    $Event = $_POST['ACTIVITY_EVENT'];
+    $DataTime = $_POST['DATE'];
+    $Event = $_POST['EVENT'];
+    $Type = $_POST['TYPE'];
 
-    $sql = "INSERT INTO `activity`(`ACTIVITY_DATE`, `ACTIVITY_EVENT`) VALUES ('$DataTime', '$Event')";
+    $sql = "INSERT INTO `activity`(`DATE`, `EVENT`, `TYPE`)  VALUES ('$DataTime', '$Event', '$Type')";
 
     
     $query = mysqli_query($conn , $sql);

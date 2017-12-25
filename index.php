@@ -14,6 +14,7 @@
 	<?php
 		//include('php_action/retrieve.php');
 	?>
+
 	<div class="container">
 		<div class="row-sm-3">
 		
@@ -38,15 +39,16 @@
 				<div class="modal-body">
 
 					<label class="control-label col-sm-2" >DataTime:</label>
-						<input type="text" name="ACTIVITY_DATE"><br>
+						<input type="text" name="DATE"><br>
+					<label class="control-label col-sm-2 " >Type:</label>
+						<input type="text" name="TYPE"><br>
 					<label class="control-label col-sm-2 " >Event:</label>
-						<input type="text" name="ACTIVITY_EVENT"><br>	
+						<input type="text" name="EVENT"><br>								
 					
 				</div>
 				<div class="modal-footer">
 				<button type="submit" class="btn btn-success">Submit</button>
 						<button type="reset" class="btn btn-warning">Reset</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				</div>
 				</form>
 				</div>
@@ -62,6 +64,7 @@
 					<tr>
 						<th>Order</th>
 						<th>DataTime</th>
+						<th>Type</th>
 						<th>Event</th>
 					</tr>
 				</thead>
@@ -74,11 +77,21 @@
 						<td><?=$i?></td>
 						<td><?=$row[1]?></td>
 						<td><?=$row[2]?></td>
-					<td> <a href="Edit.php?id=<?=$row[0]?>" class="btn btn-warning" ><i class="fa fa-pencil" aria-hidden="true"></i></i> Edit</a>                                    
- 	  					<button class="btn btn-danger"  >Delete</button>
-                                   
+						<td><?=$row[3]?></td>
+					<td> <a href="Edit.php?id=<?=$row[0]?>" class="btn btn-warning" ><i class="fa fa-pencil" aria-hidden="true"></i></i> Edit</a></td>                                
+ 	  				<td> <a href="Delete.php?id=<?=$row[0]?>" class="btn btn-danger" OnClick="return chkdel();" ><i class="fa fa-pencil" aria-hidden="true" ></i></i> Delete</a></td>
+ 	  			         
 					</tr>
+					<script language="JavaScript">
+					function chkdel(){if(confirm('  กรุณายืนยันการลบอีกครั้ง !!!  ')){
+						return true;
+					}else{
+						return false;
+					}						
+					}
+					</script -->	
 					<?php
+
 						$i++;
 						}
 
